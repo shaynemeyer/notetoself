@@ -1,8 +1,10 @@
 import React from 'react';
+import NoteForm from './NoteForm';
 
 const DashboardPage = () => (
   <div>
-    Dashboard page content
+    <h1>Note to Self</h1>
+    <NoteForm/>
   </div>
 );
 

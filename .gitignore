@@ -1,0 +1,5 @@
+node_modules
+public/dist/
+src/config/dev.js
+.env.development
+.env.test

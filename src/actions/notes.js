@@ -17,7 +17,7 @@ export const startAddNote = (noteData = {}) => {
     const note = { description, createdAt };
 
     return database.ref(`users/${uid}/notes`).push(note).then((ref) => {
-      dispatch(addExpense({
+      dispatch(addNote({
         id: ref.key,
         ...note
       }));

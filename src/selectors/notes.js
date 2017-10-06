@@ -2,11 +2,11 @@ import moment from 'moment';
 
 // Get visible notes
 export default (notes, { text, sortBy, startDate, endDate }) => {
-  return notes.filter((expense) => {
+  return notes.filter((note) => {
     const createdAtMoment = moment(note.createdAt);
     const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true;
     const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true;
-    const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
+    const textMatch = note.description.toLowerCase().includes(text.toLowerCase());
 
     return startDateMatch && endDateMatch && textMatch;
   }).sort((a, b) => {

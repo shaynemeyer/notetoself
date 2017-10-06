@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NoteForm from './NoteForm';
+import { startAddNote } from '../actions/notes';
 
 export class AddNote extends React.Component {
-  onSubmit = () => {
-
+  onSubmit = (note) => {
+    this.props.startAddNote(note);
+    this.props.history.push('/');
   };
   render() {
     return (
@@ -25,4 +27,9 @@ export class AddNote extends React.Component {
   }
 }
 
-export default AddNote;
+/* istanbul ignore next */
+const mapDispatchToProps = (dispatch) => ({
+  startAddNote: (note) => dispatch(startAddNote(note))
+});
+
+export default connect(undefined, mapDispatchToProps)(AddNote);
